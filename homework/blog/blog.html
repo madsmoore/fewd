@@ -104,23 +104,37 @@
     </main>
 
     <script>
-      var link = document.querySelector(".like-link");
-      var form = document.querySelector("#new-comment");
 
-      link.addEventListener("click", like);
-      form.addEventListener("submit", comment);
+    var likeLink = document.querySelector(".like-link");
+    var likeCount = document.querySelector(".like-count");
 
-      function like(event) {
-        event.preventDefault();
+    var commentForm = document.querySelector("#new-comment");
+    var commentBody = document.querySelector("#new-comment-body");
+    var comments = document.querySelector("#comments");
 
-        // Your code for like goes here
+    function like(event) {
+      event.preventDefault();
+
+      var count = parseInt(likeCount.textContent)
+      likeCount.textContent = count + 1;
+    }
+
+    function createComment(event) {
+      event.preventDefault();
+
+      if (commentBody.value.length > 0) {
+        var comment = document.createElement("div");
+        comment.setAttribute("class", "comment");
+        comment.textContent = commentBody.value;
+        comments.appendChild(comment);
+        commentForm.reset();
       }
+    };
 
-      function comment(event) {
-        event.preventDefault();
+    likeLink.addEventListener("click", like);
+    commentForm.addEventListener("submit", createComment);
+  
 
-        // Your code for comments goes here
-      }
     </script>
   </body>
 </html>
