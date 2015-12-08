@@ -1,3 +1,14 @@
+<style>
+* { box-sizing: border-box; }
+body { font-size: 20px; font-family: sans-serif; }
+
+td { width: 100px; text-align: center; }
+.placeholder, button { width: 100%; }
+.placeholder { height: 23px; border: 1px solid #bababa; border-radius: 3px; }
+button { cursor: pointer; border: 1px solid #58c0f5; color: #58c0f5; background-color: white; font: inherit; }
+button { background-color: #58c0f5; color: white; border-radius: 3px; }
+</style>
+
 <table>
   <tr>
     <td>
@@ -30,9 +41,9 @@
 </table>
 
 <script>
-var op1 = document.querySelector(".first-operand");
-var op2 = document.querySelector(".second-operand");
-var result = document.querySelector(".result");
+var firstOperand = document.querySelector(".first-operand");
+var secondOperand = document.querySelector(".second-operand");
+var result = document.querySelector(".result")
 
 var addButton = document.querySelector(".add-button");
 var subtractButton = document.querySelector(".subtract-button");
@@ -44,36 +55,19 @@ subtractButton.addEventListener("click", subtract);
 multiplyButton.addEventListener("click", multiply);
 divideButton.addEventListener("click", divide);
 
-function add(event) {
-  event.preventDefault();
-  result.value = parseInt(op1.value) + parseInt(op2.value);
+function add() {
+  result.value = parseFloat(firstOperand.value) + parseFloat(secondOperand.value);
 }
 
-function subtract(event) {
-  event.preventDefault();
-  result.value = parseInt(op1.value) - parseInt(op2.value);
+function subtract() {
+  result.value = parseFloat(firstOperand.value) - parseFloat(secondOperand.value);
 }
 
-function multiply(event) {
-  event.preventDefault();
-  result.value = parseInt(op1.value) * parseInt(op2.value);
+function multiply() {
+  result.value = parseFloat(firstOperand.value) * parseFloat(secondOperand.value);
 }
 
-function divide(event) {
-  event.preventDefault();
-  result.value = parseInt(op1.value) / parseInt(op2.value);
+function divide() {
+  result.value = parseFloat(firstOperand.value) / parseFloat(secondOperand.value);
 }
-// Your code goes here...
-
 </script>
-
-<style>
-* { box-sizing: border-box; }
-body { font-size: 20px; font-family: sans-serif; }
-
-td { width: 100px; text-align: center; }
-.placeholder, button { width: 100%; }
-.placeholder { height: 23px; border: 1px solid #bababa; border-radius: 3px; }
-button { cursor: pointer; border: 1px solid #58c0f5; color: #58c0f5; background-color: white; font: inherit; }
-button { background-color: #58c0f5; color: white; border-radius: 3px; }
-</style>
